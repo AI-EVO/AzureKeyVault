@@ -1,9 +1,10 @@
 package cxp.demo.keyvault.controller;
 
-import cxp.demo.keyvault.utils.AzureKeyVaultUtil;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import cxp.demo.keyvault.utils.AzureKeyVaultUtils;
 
 @RestController
 public class HomeController {
@@ -15,6 +16,6 @@ public class HomeController {
 
     @RequestMapping("/Secret/{name}")
     public String GetSecret(@PathVariable("name") String name){
-        return AzureKeyVaultUtil.GetSecret(name).value();
+        return AzureKeyVaultUtils.GetSecret(name).value();
     }
 }
